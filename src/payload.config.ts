@@ -17,6 +17,9 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      providers: ['@/test-provider'],
+    },
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
@@ -24,6 +27,7 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
+
   db: sqliteAdapter({
     client: {
       url: process.env.DATABASE_URL || '',
